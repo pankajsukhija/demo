@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
-import Container from "@material-ui/core/Container";
 import { Card } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
@@ -9,9 +8,6 @@ import StationList from "../../dummyData/stationList";
 import axios from "axios";
 
 const useStyles = makeStyles({
-  container: {
-    marginTop: "20px"
-  },
   card: {
     minWidth: 275
   },
@@ -49,10 +45,10 @@ function Home() {
 }
 
 `;
-  const headers = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*"
-  };
+  // const headers = {
+  //   "Content-Type": "application/json",
+  //   "Access-Control-Allow-Origin": "*"
+  // };
   // const axiosGitHubGraphQL = axios.create({
   //   baseURL: "https://api.github.com/graphql",
   //   headers:headers
@@ -69,7 +65,7 @@ function Home() {
       .then(result => console.log(result));
   });
   return (
-    <Container maxWidth="md" className={classes.container}>
+    
       <Card className={classes.card}>
         <CardContent>
           <TextField
@@ -87,7 +83,7 @@ function Home() {
           <ItemList itemList={list} />
         </CardContent>
       </Card>
-    </Container>
+    
   );
 }
 
