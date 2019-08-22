@@ -9,6 +9,7 @@ import Home from "./Components/Home/"; // Will be changing this to an Index.js f
 import Details from "./Components/Details/";
 import Container from "@material-ui/core/Container";
 
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1

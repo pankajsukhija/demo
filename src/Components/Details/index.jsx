@@ -1,5 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
+import { gql } from "apollo-boost";
+import { useQuery } from '@apollo/react-hooks';
 import {
   Card,
   CardActions,
@@ -10,7 +12,7 @@ import {
   Grid,
 } from '@material-ui/core';
 import stationDetails from "../../Data/stationDetails"
-import Timetable from './Timetable'
+// import Timetable from './Timetable'
 import StationIcons from './StationIcons'
 
 const useStyles = makeStyles({
@@ -22,10 +24,51 @@ const useStyles = makeStyles({
   }
 });
 
-const stationData = stationDetails.stationWithEvaId
+let stationData = stationDetails.stationWithEvaId
+
 
 export default function Details(props) {
+  console.log(props)
   const classes = useStyles();
+  const QUERY = gql`
+{
+  stationWithEvaId(evaId: 8000105) {
+    name
+    location {
+      latitude
+      longitude
+    }
+    hasWiFi
+    hasParking
+    hasCarRental
+    hasBicycleParking
+    hasLocalPublicTransport
+    mailingAddress{
+      city
+      zipcode
+      street
+    }
+    stationManagement{
+      name
+      email
+      phoneNumber
+    }
+    
+    picture {
+      url
+    }
+  }
+}
+`
+  const { loading, error, data } = useQuery(QUERY);
+  
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+    stationData = data.stationWithEvaId
+    if (stationData.picture == null){
+      stationData.picture = {url :'https://via.placeholder.com/900'}
+    }
   return (
     <Card className={classes.card}>
         <CardMedia
@@ -57,7 +100,7 @@ export default function Details(props) {
         </Grid>
         </Grid>
           <br />
-          <Timetable />
+          {/* <Timetable /> */}
         </CardContent>
       <CardActions>
         <Button size="small" color="primary">
