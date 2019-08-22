@@ -1,9 +1,4 @@
-import { 
-  makeStyles,
-  Card,
-  CardContent,
-  TextField
- } from "@material-ui/core";
+import { makeStyles, Card, CardContent, TextField } from "@material-ui/core";
 import React from "react";
 import ItemList from "./List";
 import StationList from "../../Data/stationList";
@@ -29,63 +24,54 @@ const useStyles = makeStyles({
 function Home() {
   const classes = useStyles();
   const list = StationList;
-//   const GET_ORGANIZATION = `
-// {
-//  search(searchTerm:"Hannover"){
-//   stations{
-//     name
-//     primaryEvaId
-//     location{
-//       latitude
-//       longitude
-//     }
-//     picture{
-//       url
-//     }
-//   }
-// }
-// }
+  const GET_ORGANIZATION = `
+{
+ search(searchTerm:"Hannover"){
+  stations{
+    name
+    primaryEvaId
+    location{
+      latitude
+      longitude
+    }
+    picture{
+      url
+    }
+  }
+}
+}
 
-// `;
-  // const headers = {
-  //   "Content-Type": "application/json",
-  //   "Access-Control-Allow-Origin": "*"
-  // };
-  // const axiosGitHubGraphQL = axios.create({
-  //   baseURL: "https://api.github.com/graphql",
-  //   headers:headers
-  // });
-  // useEffect(() => {
-  //   axios
-  //     .post(
-  //       "https://trigbitdemo.herokuapp.com/graphql",
-  //       {
-  //         query: GET_ORGANIZATION
-  //       }
-  //       // { headers: headers }
-  //     )
-  //     .then(result => console.log(result));
-  // });
+`;
+
+  useEffect(() => {
+    axios
+      .post(
+        "http://localhost:4000",
+        {
+          query: GET_ORGANIZATION
+        }
+        // { headers: headers }
+      )
+      .then(result => console.log(result));
+  });
   return (
-    
-      <Card className={classes.card}>
-        <CardContent>
-          <TextField
-            id="standard-full-width"
-            label="Search"
-            style={{ margin: 8 }}
-            placeholder="Station Name"
-            // helperText="Full width!"
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-          <ItemList itemList={list} />
-        </CardContent>
-      </Card>
-    
+    <Card className={classes.card}>
+      <CardContent>
+        <TextField
+          id="standard-full-width"
+          label="Search"
+          style={{ margin: 8 }}
+          placeholder="Station Name"
+          // helperText="Full width!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true
+          }}
+        />
+        <ItemList itemList={list} />
+      </CardContent>
+    </Card>
   );
 }
 
