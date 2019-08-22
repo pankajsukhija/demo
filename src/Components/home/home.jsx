@@ -1,17 +1,15 @@
-import { makeStyles } from "@material-ui/core";
-import React, { useEffect } from "react";
-import Container from "@material-ui/core/Container";
-import { Card } from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
-import TextField from "@material-ui/core/TextField";
-import ItemList from "../list/list";
+import { 
+  makeStyles,
+  Card,
+  CardContent,
+  TextField
+ } from "@material-ui/core";
+import React from "react";
+import ItemList from "../list/List";
 import StationList from "../../dummyData/stationList";
-import axios from "axios";
+// import axios from "./node_modules/axios";
 
 const useStyles = makeStyles({
-  container: {
-    marginTop: "20px"
-  },
   card: {
     minWidth: 275
   },
@@ -31,45 +29,45 @@ const useStyles = makeStyles({
 function Home() {
   const classes = useStyles();
   const list = StationList;
-  const GET_ORGANIZATION = `
-{
- search(searchTerm:"Hannover"){
-  stations{
-    name
-    primaryEvaId
-    location{
-      latitude
-      longitude
-    }
-    picture{
-      url
-    }
-  }
-}
-}
+//   const GET_ORGANIZATION = `
+// {
+//  search(searchTerm:"Hannover"){
+//   stations{
+//     name
+//     primaryEvaId
+//     location{
+//       latitude
+//       longitude
+//     }
+//     picture{
+//       url
+//     }
+//   }
+// }
+// }
 
-`;
-  const headers = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*"
-  };
+// `;
+  // const headers = {
+  //   "Content-Type": "application/json",
+  //   "Access-Control-Allow-Origin": "*"
+  // };
   // const axiosGitHubGraphQL = axios.create({
   //   baseURL: "https://api.github.com/graphql",
   //   headers:headers
   // });
-  useEffect(() => {
-    axios
-      .post(
-        "https://trigbitdemo.herokuapp.com/graphql",
-        {
-          query: GET_ORGANIZATION
-        }
-        // { headers: headers }
-      )
-      .then(result => console.log(result));
-  });
+  // useEffect(() => {
+  //   axios
+  //     .post(
+  //       "https://trigbitdemo.herokuapp.com/graphql",
+  //       {
+  //         query: GET_ORGANIZATION
+  //       }
+  //       // { headers: headers }
+  //     )
+  //     .then(result => console.log(result));
+  // });
   return (
-    <Container maxWidth="md" className={classes.container}>
+    
       <Card className={classes.card}>
         <CardContent>
           <TextField
@@ -87,7 +85,7 @@ function Home() {
           <ItemList itemList={list} />
         </CardContent>
       </Card>
-    </Container>
+    
   );
 }
 
