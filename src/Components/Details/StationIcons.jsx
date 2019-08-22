@@ -6,7 +6,7 @@ import {
     DirectionsCarRounded,
     DirectionsBusRounded,
     DirectionsBikeRounded
-    } from '@material-ui/icons'
+} from '@material-ui/icons'
 
 // const useStyles = makeStyles({
 //     //
@@ -17,23 +17,21 @@ export default function StationIcons(props){
     // const classes = useStyles();
     return (
         <div>
-            {
-          // Need to add details on-hover
-        }
+
         {stationData.hasParking ? 
-        <LocalParkingRounded fontSize='large'/> : <span></span>}
+        <span title="Parking Available"><LocalParkingRounded fontSize='large'/></span> : <span ></span>}
 
         {stationData.hasWiFi ? 
-        <WifiRounded fontSize='large'/> : <span></span>}
+        <span title="Wifi Available"><WifiRounded fontSize='large'/></span> : <span></span>}
 
         {stationData.hasCarRental ? 
-        <DirectionsCarRounded fontSize='large'/>: <span></span>}
+        <span title="Car Rental Available"><DirectionsCarRounded fontSize='large'/></span>: <span></span>}
 
         {stationData.hasLocalPublicTransport ? 
-        <DirectionsBusRounded fontSize='large'/> : <span></span>}
+        <span title="Public Transport Available"><DirectionsBusRounded fontSize='large'/></span> : <span></span>}
         
         {stationData.hasBicycleParking ? 
-        <DirectionsBikeRounded fontSize='large'/> : <span></span>}
+        <span title="Bicycle Parking Available"><DirectionsBikeRounded fontSize='large'/></span> : <span></span>}
         </div>
     )
 }

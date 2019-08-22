@@ -5,8 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Home from "./Components/Home/Home"; // Will be changing this to an Index.js file later
-import Detail from "./Components/detail/Detail";
+import Home from "./Components/Home/"; // Will be changing this to an Index.js file later
+import Details from "./Components/Details/";
 import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles({
@@ -33,8 +33,8 @@ function App() {
       </div>
       <Container maxWidth="md" className={classes.container}>
       <Route path="/" exact component={Home} />
-      <Route path="/Home" component={Home} />
-      <Route path="/details/" component={Detail} />
+      {/* <Route path="/home" component={Home} /> */}
+      <Route path="/details/" component={Details} />
       </Container>
     </Router>
   );

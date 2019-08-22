@@ -5,8 +5,8 @@ import {
   TextField
  } from "@material-ui/core";
 import React from "react";
-import ItemList from "../list/List";
-import StationList from "../../dummyData/stationList";
+import ItemList from "./List";
+import StationList from "../../Data/stationList";
 // import axios from "./node_modules/axios";
 
 const useStyles = makeStyles({

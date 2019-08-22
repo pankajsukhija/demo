@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import stationDetails from "../../dummyData/stationDetails"
+import stationDetails from "../../Data/stationDetails"
 import Timetable from './Timetable'
 import StationIcons from './StationIcons'
 
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 const stationData = stationDetails.stationWithEvaId
 
-function Detail(props) {
+export default function Details(props) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -68,5 +68,3 @@ function Detail(props) {
     </Card>
   )
 }
-
-export default Detail;
