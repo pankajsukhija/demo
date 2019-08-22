@@ -1,11 +1,13 @@
-import { makeStyles } from "@material-ui/core";
-import React, { useEffect } from "react";
-import { Card } from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
-import TextField from "@material-ui/core/TextField";
-import ItemList from "../list/list";
+import { 
+  makeStyles,
+  Card,
+  CardContent,
+  TextField
+ } from "@material-ui/core";
+import React from "react";
+import ItemList from "../list/List";
 import StationList from "../../dummyData/stationList";
-import axios from "axios";
+// import axios from "./node_modules/axios";
 
 const useStyles = makeStyles({
   card: {
@@ -27,24 +29,24 @@ const useStyles = makeStyles({
 function Home() {
   const classes = useStyles();
   const list = StationList;
-  const GET_ORGANIZATION = `
-{
- search(searchTerm:"Hannover"){
-  stations{
-    name
-    primaryEvaId
-    location{
-      latitude
-      longitude
-    }
-    picture{
-      url
-    }
-  }
-}
-}
+//   const GET_ORGANIZATION = `
+// {
+//  search(searchTerm:"Hannover"){
+//   stations{
+//     name
+//     primaryEvaId
+//     location{
+//       latitude
+//       longitude
+//     }
+//     picture{
+//       url
+//     }
+//   }
+// }
+// }
 
-`;
+// `;
   // const headers = {
   //   "Content-Type": "application/json",
   //   "Access-Control-Allow-Origin": "*"
@@ -53,17 +55,17 @@ function Home() {
   //   baseURL: "https://api.github.com/graphql",
   //   headers:headers
   // });
-  useEffect(() => {
-    axios
-      .post(
-        "https://trigbitdemo.herokuapp.com/graphql",
-        {
-          query: GET_ORGANIZATION
-        }
-        // { headers: headers }
-      )
-      .then(result => console.log(result));
-  });
+  // useEffect(() => {
+  //   axios
+  //     .post(
+  //       "https://trigbitdemo.herokuapp.com/graphql",
+  //       {
+  //         query: GET_ORGANIZATION
+  //       }
+  //       // { headers: headers }
+  //     )
+  //     .then(result => console.log(result));
+  // });
   return (
     
       <Card className={classes.card}>

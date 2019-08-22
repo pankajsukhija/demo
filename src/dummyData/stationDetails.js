@@ -5,12 +5,13 @@ const stationDetails = {
       "location": {
         "latitude": 50.107145,
         "longitude": 8.663789
-      },
+      }, 
       "hasWiFi": true,
       "hasParking": true,
       "hasCarRental": true,
       "hasBicycleParking": true,
       "hasLocalPublicTransport": true,
+      "hasPublicFacilities" : true,
       "mailingAddress": {
         "city": "Frankfurt am Main",
         "zipcode": "60329",
