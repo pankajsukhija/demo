@@ -60,7 +60,7 @@ function Home() {
   useEffect(() => {
     axios
       .post(
-        "https://trigbitdemo.herokuapp.com/graphql",
+        "http://localhost:4000",
         {
           query: GET_ORGANIZATION
         }
