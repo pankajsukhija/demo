@@ -1,12 +1,14 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+  Grid,
+} from '@material-ui/core';
 import stationDetails from "../../Data/stationDetails"
 import Timetable from './Timetable'
 import StationIcons from './StationIcons'
@@ -28,10 +30,10 @@ export default function Details(props) {
     <Card className={classes.card}>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt={stationData.name}
           height="240"
           image={stationData.picture.url}
-          title="Zuck"
+          title={stationData.name}
         />
         <CardContent>
         
